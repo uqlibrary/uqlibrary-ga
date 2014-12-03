@@ -48,14 +48,14 @@ Custom web element for Google Analytics
     *
     */
 
-      trackingId : 'UA-57237028-1',
-      websiteUrl: 'https://app.library.uq.edu.au/v1/booking/',
+      trackingId : 'UA-4365437-12',
+      websiteUrl: 'https://app.library.uq.edu.au',
       cookieDomain: 'app.library.uq.edu.au',
       appName: 'UQLAPP',
 
       //google analytics settings: clientId, siteSpeedSampleRate, forceSSL, etc
       sampleRate: 100,
-      disableTracking: 'ga-disable-UA-57237028-1',
+      disableTracking: 'ga-disable-UA-XXX-Y',
 
       created: function() {
       },
@@ -65,7 +65,7 @@ Custom web element for Google Analytics
         ga('create', this.trackingId,
                 {
                   'cookieName'    : 'ga_' + this.appName,
-                  'cookieDomain'  : document.location.href != this.websiteUrl ? 'none' : this.cookieDomain,
+                  'cookieDomain'  : document.location.origin != this.websiteUrl ? 'none' : this.cookieDomain,
                   'sampleRate'    : this.sampleRate
                 });
 
