@@ -64,7 +64,7 @@ Custom web element for Google Analytics
       ready: function() {
         var cookie = this.getCookie('UQLMockData');
         if (cookie !== "undefined") {
-          this.useMockData = cookie === 'true';
+          this.useMockData = (cookie === 'enabled');
         }
         //Don't use GA if we are running a mock data test
         if (!this.useMockData) {
