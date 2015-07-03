@@ -14,7 +14,7 @@ Custom web element for Google Analytics
 @homepage http://uqlibrary.github.io/uqlibrary-ga
 
 -->
-<polymer-element name="uqlibrary-ga" attributes="webPropertyId isLocal appName">
+<dom-module id="uqlibrary-ga">
 
   <script>
 
@@ -24,41 +24,68 @@ Custom web element for Google Analytics
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     Polymer({
-    /**
-    * The `trackingId` Google Analytics tracking ID
-    *
-    * @property trackingId
-    * @type String
-    */
 
-    /** The `websiteUrl` url of website for Google Analytics
-    *
-    * @property websiteUrl
-    * @type String
-    */
-    /** The `appName` application name to prefix page views
-    * @property appName
-    * @type String
-    */
+      is: 'uqlibrary-ga',
 
-    /** The `cookieDomain` set domain for cookies
-    *
-    * @property cookieDomain
-    * @type String
-    *
-    */
+      properties: {
 
-      trackingId : 'UA-4365437-12',
-      websiteUrl: 'https://app.library.uq.edu.au',
-      cookieDomain: 'app.library.uq.edu.au',
-      appName: 'UQLAPP',
+        /** The `appName` application name to prefix page views
+         *
+         */
+        appName: {
+          type: String,
+          value: 'UQLAPP'
+        },
 
-      //google analytics settings: clientId, siteSpeedSampleRate, forceSSL, etc
-      sampleRate: 100,
-      disableTracking: 'ga-disable-UA-XXX-Y',
-      useMockData: false,
+        /**
+         * The `trackingId` Google Analytics tracking ID
+         *
+         */
+        trackingId: {
+          type: String,
+          value: 'UA-4365437-12'
+        },
 
-      created: function() {
+        /** The `websiteUrl` url of website for Google Analytics
+         *
+         */
+        websiteUrl: {
+          type: String,
+          value: 'https://app.library.uq.edu.au'
+        },
+
+        /** The `cookieDomain` set domain for cookies
+         *
+         */
+        cookieDomain: {
+          type: String,
+          value: 'app.library.uq.edu.au'
+        },
+
+        /** Google Analytics setting 'siteSpeedSampleRate'
+        *
+        */
+        sampleRate: {
+          type: Number,
+          value: 100
+        },
+
+        /** Tracking ID for testing purposes. It isn't passed to GA
+         *
+         */
+        disableTracking: {
+          type: String,
+          value: 'ga-disable-UA-XXX-Y'
+        },
+
+        /** Defines whether the element works in test mode and uses mock data
+         *
+         */
+        useMockData: {
+          type: Boolean,
+          value: false
+        }
+
       },
 
       ready: function() {
@@ -150,4 +177,4 @@ Custom web element for Google Analytics
 
   </script>
 
-</polymer-element>
+</dom-module>

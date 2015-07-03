@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
-  <title>uqlibrary-time-selector</title>
+  <title>uqlibrary-ga</title>
 
-  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../webcomponentsjs/webcomponents.min.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
+  <script src="../../test-fixture/test-fixture-mocha.js"></script>
+
+  <link rel="import" href="../../test-fixture/test-fixture.html">
 
   <!-- Step 1: import the element to test -->
   <link rel="import" href="../uqlibrary-ga.html">
@@ -14,21 +17,23 @@
 <body>
 
   <!-- You use the document as a place to set up your fixtures. -->
-  <uqlibrary-ga></uqlibrary-ga>
+  <test-fixture id="ga-fixture">
+    <template>
+      <uqlibrary-ga></uqlibrary-ga>
+    </template>
+  </test-fixture>
 
   <script>
-    window.addEventListener('polymer-ready', function() {
-
-      var element = document.querySelector('uqlibrary-ga');
       var trackingId = 'UA-12345-6';
       var websiteUrl = 'http://test.uq.edu.au/app';
       var cookieDomain = 'test.uq.edu.au';
       var appName = 'TEST';
+      var element;
 
       suite('uqlibrary-ga', function() {
 
         before(function () {
-          element = document.querySelector('uqlibrary-ga');
+          element = fixture('ga-fixture');
           element.trackingId = trackingId;
           element.websiteUrl = websiteUrl;
           element.cookieDomain = cookieDomain;
@@ -53,7 +58,6 @@
         });
 
       });
-    });
   </script>
 
 </body>
