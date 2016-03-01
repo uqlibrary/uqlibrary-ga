@@ -1,31 +1,21 @@
 uqlibrary-ga
 ============
 Web component for Google Analytics
+Full documentation can be found at [GitHub Pages](http://uqlibrary.github.io/uqlibrary-ga).
 
-Testing creating new web components
-See the [component page](http://uqlibrary.github.io/uqlibrary-ga) for more information.
-
-## Testing
-
-Add the logic specific to your new element and verify its functionality. Good unit tests are essential to your verification plan but a good way to quickly sanity test your component is to access your demo.html file via a local web server. There are several ways to do this but one easy method is to run a simple web server that ships with Python, using the commands:
-
+### Getting Started
+Install Node.JS and run the following oneliner in the project directory:
 ```sh
-python -m SimpleHTTPServer
+npm install -g bower && bower install
 ```
 
-Or other method using NodeJS:
+### Developing
+- Please adhere to the Polymer code style guide provided at [Style Guide](http://polymerelements.github.io/style-guide/). 
+- Colors and common styles are imported (bower install) from [uqlibrary-styles](http://github.com/uqlibrary/uqlibrary-hours).
+- GitHub pages should be updated after every commit to Master by running the "generate-gh-pages.sh" in the /bin/ directory
 
+### Testing
+Tests are run using the Web Component Tester. Either navigate to /tests/index.html in a browser or using the command line:
 ```sh
-http-server ./
-```
-
-This starts a web server on port 8000, so you can test your new element by navigating a browser to `localhost:8000/test/index.html`.
-
-### web-component-tester
-
-The tests are also compatible with [web-component-tester](https://github.com/Polymer/web-component-tester). You can run them on multiple local browsers via:
-
-```sh
-npm install -g web-component-tester
-wct
+wct --local all
 ```

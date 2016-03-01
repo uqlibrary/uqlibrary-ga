@@ -2,3 +2,5 @@
 .tmp
 .idea
 *.map
+.DS_Store
+bower_components
