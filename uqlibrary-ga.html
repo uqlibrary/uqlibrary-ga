@@ -99,7 +99,7 @@ Example:
             ga('create', this.trackingId,
                     {
                       'cookieName': 'ga_' + this.appName,
-                      'cookieDomain': document.location.origin != this.websiteUrl ? 'none' : this.cookieDomain,
+                      'cookieDomain': document.location.hostname.indexOf(this.cookieDomain) >= 0 ? 'none' : this.cookieDomain,
                       'sampleRate': this.sampleRate
                     });
           } catch(err){}
