@@ -103,6 +103,7 @@ Example:
                       'cookieDomain': document.location.hostname.indexOf(this.cookieDomain) >= 0 ? this.cookieDomain : 'none',
                       'sampleRate': this.sampleRate
                     });
+            ga.set('set', 'dimension1', this.getCookie('UQLID_PTYPE'));
           } catch(err){}
         }
 
