@@ -73,11 +73,14 @@ Example:
       ready: function() {
         var cookie = this.getCookie('UQLMockData'),
             ptype = this.getCookie('UQLID_PTYPE');
+
         this.useMockData = false;
-        if (cookie !== "undefined") {
+        if (cookie) {
           this.useMockData = (cookie === 'enabled');
         }
-        if(ptype !== "undefined") {
+
+        this.ptype = null;
+        if (ptype) {
           this.ptype = ptype;
         }
       },
