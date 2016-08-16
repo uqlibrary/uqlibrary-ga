@@ -15,6 +15,20 @@ At build time use following tokens to replace:
 - <GA-WEBSITE-URL>
 - <GA-COOKIE-DOMAIN>
 
+uqlibrary-gtm
+=============
+Web component for Google Tag Manager
+
+### Usage
+
+```
+    <uqlibrary-gtm container-id='GTM-1234-5' app-name='TestApp'></uqlibrary-gtm>
+```
+
+Container id, app name are set to be replaced at build time or as attributes to a required value.
+At build time use following tokens to replace: 
+- <GTM-CONTAINER-ID>
+
 ### Getting Started
 Please, note .bowerrc installs dependencies to ../ directory. It's recommended to develop this component in a sub directory, eg  .development/uqlibrary-ga-dev/uqlibrary-ga/ not to pollute your development directory with all bower dependencies.
  
@@ -25,8 +39,6 @@ npm install -g bower && bower install
 
 ### Developing
 - Please adhere to the Polymer code style guide provided at [Style Guide](http://polymerelements.github.io/style-guide/). 
-- Colors and common styles are imported (bower install) from [uqlibrary-styles](http://github.com/uqlibrary/uqlibrary-hours).
-- GitHub pages should be updated after every commit to Master by running the "generate-gh-pages.sh" in the /bin/ directory
 
 ### Testing
 Tests are run using the Web Component Tester. Either navigate to /tests/index.html in a browser or using the command line:
