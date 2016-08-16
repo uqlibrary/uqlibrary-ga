@@ -86,6 +86,32 @@ Example:
       },
 
       /**
+       * The `addPageView` method records a pageview
+       *
+       * @method addPageView
+       * @param page
+       */
+      addPageView: function(page) {
+        if (!this.useMockData){
+
+          var data = {
+            'event':'Pageview',
+            'page': page,
+            'title': page
+          }
+
+          if (this.ptype) {
+            data.dimension1 = this.ptype;
+          }
+
+          try {
+            dataLayer.push(data);
+          } catch (err) {
+          }
+        }
+      },
+
+      /**
        * The `addEvent` method records an action of the event
        * Event is recorded with category set to 'AppName' and action set to '/AppName/action'
        *

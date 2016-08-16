@@ -141,6 +141,7 @@ Example:
 
             ga('set', {page: pageHit, title: pageHit});
             ga('send', 'pageview');
+            this.$.gtm.addPageView(pageHit);
           } catch (err) {
           }
         }
