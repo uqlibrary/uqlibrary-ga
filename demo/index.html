@@ -18,11 +18,6 @@
   (function () {
     document.cookie="UQLMockData=enabled";
     document.cookie="UQLMockData-PType=1";
-    window.addEventListener('WebComponentsReady', function(e) {
-      var tracking = document.querySelector('#demo-ga');
-      // record page view
-      tracking.addPageView('Test Page');
-    });
   }());
 </script>
 </body>
