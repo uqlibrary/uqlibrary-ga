@@ -156,13 +156,22 @@ Example:
       addEvent: function(action, label) {
         //Don't use GA if we are running a mock data test
         if (!this.useMockData) {
+          var category = 'Outbound links';
+
+          if (action) {
+            category = this.appName;
+            action = "/" + this.appName + "/" + action;
+          } else {
+            action = 'Click';
+          }
+
           try {
-            if (typeof(label) != 'undefined') {
-              ga('send', 'event', this.appName, "/" + this.appName + "/" + action, label);
+            if (label) {
+              ga('send', 'event', category, action, label);
               this.$.gtm.addEvent(action, label);
             }
             else {
-              ga('send', 'event', this.appName, "/" + this.appName + "/" + action);
+              ga('send', 'event', category, action);
               this.$.gtm.addEvent(action);
             }
           } catch (err) {

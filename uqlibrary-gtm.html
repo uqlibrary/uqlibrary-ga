@@ -117,11 +117,19 @@ Example:
        */
       addEvent: function(action, label) {
         if (!this.useMockData){
+         var category = 'Outbound links';
+
+         if (action) {
+            category = this.appName;
+            action = "/" + this.appName + "/" + action;
+          } else {
+            action = 'Click';
+          }
 
           var data = {
             'event':'Click',
-            'category': this.appName,
-            'action': this.appName + "/" + action,
+            'category': category,
+            'action': action,
             'label': label
           }
 
