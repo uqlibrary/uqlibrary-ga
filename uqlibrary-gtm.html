@@ -89,58 +89,70 @@ Example:
        */
       addPageView: function(page) {
         if (!this.useMockData){
+          page = "/" + this.appName + "/" + page;
 
           var data = {
             'event':'Pageview',
             'page': page,
             'title': page
           }
-
-          if (this.ptype) {
-            data.dimension1 = this.ptype;
-          }
-
-          try {
-            dataLayer.push(data);
-          } catch (err) {
-          }
+         this.fireEvent(data);
         }
       },
 
       /**
-       * The `addEvent` method records an action of the event
-       * Event is recorded with category set to 'AppName' and action set to '/AppName/action'
+       *  The `addEvent` method records an action of the event
+       *  Event is recorded with category set to 'AppName' and action set to '/AppName/action'
        *
        * @method addEvent
        * @param action
        * @param label
        */
       addEvent: function(action, label) {
-        if (!this.useMockData){
-         var category = 'Outbound links';
+        if (!this.useMockData) {
+         var data = {
+          'event': 'Click',
+          'category': this.appName,
+          'action': "/" + this.appName + "/" + action,
+          'label': label
+         }
+          this.fireEvent(data);
+        }
+      },
 
-         if (action) {
-            category = this.appName;
-            action = "/" + this.appName + "/" + action;
-          } else {
-            action = 'Click';
-          }
-
+      /**
+       *  The `addOutboundClick` method records an action of the event
+       *  Event is recorded with category set to 'Outbound links' and action set to 'Click'
+       *
+       * @method addOutboundClick
+       * @param label
+       */
+      addOutboundClick: function(label) {
+        if (!this.useMockData) {
           var data = {
-            'event':'Click',
-            'category': category,
-            'action': action,
+            'event': 'Click',
+            'category': 'Outbound links',
+            'action': 'Click',
             'label': label
           }
+          this.fireEvent(data);
+        }
+      },
 
-          if (this.ptype) {
-            data.dimension1 = this.ptype;
-          }
+      /**
+       *  The `fireEvent` method pushes data to the dataLayer
+       *
+       * @method fireEvent
+       * @param data
+       */
+      fireEvent: function(data){
+        if (this.ptype) {
+          data.dimension1 = this.ptype;
+        }
 
-          try {
-            dataLayer.push(data);
-          } catch (err) {
-          }
+        try {
+          dataLayer.push(data);
+        } catch (err) {
         }
       },
 

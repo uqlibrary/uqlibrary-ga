@@ -132,16 +132,16 @@ Example:
        *  Page view is recorded as '/AppName/page'
        *
        * @method addPageView
+       * @param page
        */
       addPageView: function(page) {
-        //Don't use GA if we are running a mock data test
         if (!this.useMockData) {
-          try {
-            var pageHit = "/" + this.appName + "/" + page;
+          var pageHit = "/" + this.appName + "/" + page;
 
+          try {
             ga('set', {page: pageHit, title: pageHit});
             ga('send', 'pageview');
-            this.$.gtm.addPageView(pageHit);
+            this.$.gtm.addPageView(page);
           } catch (err) {
           }
         }
@@ -152,30 +152,47 @@ Example:
        *  Event is recorded with category set to 'AppName' and action set to '/AppName/action'
        *
        * @method addEvent
+       * @param action
+       * @param label
        */
       addEvent: function(action, label) {
         //Don't use GA if we are running a mock data test
         if (!this.useMockData) {
-          var category = 'Outbound links';
+          this.fireEvent(this.appName, "/" + this.appName + "/" + action, label);
+          this.$.gtm.addEvent(action,label);
+        }
+      },
 
-          if (action) {
-            category = this.appName;
-            action = "/" + this.appName + "/" + action;
+      /**
+       *  The `addOutboundClick` method records an action of the event
+       *  Event is recorded with category set to 'Outbound links' and action set to 'Click'
+       *
+       * @method addOutboundClick
+       * @param label
+       */
+      addOutboundClick: function(label) {
+        if (!this.useMockData) {
+          this.fireEvent('Outbound links', 'Click', label);
+          this.$.gtm.addOutboundClick(label);
+        }
+      },
+
+      /**
+       *  The `fireEvent` method records an action of the event
+       *
+       * @method fireEvent
+       * @param category
+       * @param action
+       * @param label
+       */
+      fireEvent: function(category, action, label){
+        try {
+          if (label) {
+            ga('send', 'event', category, action, label);
           } else {
-            action = 'Click';
+            ga('send', 'event', category, action);
           }
-
-          try {
-            if (label) {
-              ga('send', 'event', category, action, label);
-              this.$.gtm.addEvent(action, label);
-            }
-            else {
-              ga('send', 'event', category, action);
-              this.$.gtm.addEvent(action);
-            }
-          } catch (err) {
-          }
+        } catch (err) {
         }
       },
 
@@ -185,8 +202,8 @@ Example:
        * @returns {String}
        */
       getCookie: function (name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
+        var value = "; " + document.cookie,
+            parts = value.split("; " + name + "=");
         if (parts.length === 2) return parts.pop().split(";").shift();
       }
 
