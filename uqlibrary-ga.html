@@ -158,22 +158,12 @@ Example:
       addEvent: function(action, label) {
         //Don't use GA if we are running a mock data test
         if (!this.useMockData) {
-          this.fireEvent(this.appName, "/" + this.appName + "/" + action, label);
-          this.$.gtm.addEvent(action,label);
-        }
-      },
-
-      /**
-       *  The `addOutboundClick` method records an action of the event
-       *  Event is recorded with category set to 'Outbound links' and action set to 'Click'
-       *
-       * @method addOutboundClick
-       * @param label
-       */
-      addOutboundClick: function(label) {
-        if (!this.useMockData) {
-          this.fireEvent('Outbound links', 'Click', label);
-          this.$.gtm.addOutboundClick(label);
+          if (this.isOutboundLink(label)) {
+            this.fireEvent('Outbound links', 'Click', label);
+          } else {
+            this.fireEvent(this.appName, "/" + this.appName + "/" + action, label);
+          }
+          this.$.gtm.addEvent(action, label);
         }
       },
 
@@ -205,6 +195,17 @@ Example:
         var value = "; " + document.cookie,
             parts = value.split("; " + name + "=");
         if (parts.length === 2) return parts.pop().split(";").shift();
+      },
+
+      /**
+       * Simple check on the click event label, any link not match http(s)://*.library.uq.edu.au is an outbound link
+       *
+       * @param link
+       * @return boolean
+       */
+      isOutboundLink: function(link) {
+        var regex = /^http(s)?:\/\/((?!library\.uq\.edu\.au).)*$/i;
+        return regex.test(link);
       }
 
     });
