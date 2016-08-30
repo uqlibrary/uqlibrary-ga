@@ -109,15 +109,13 @@ Example:
        * @param label
        */
       addEvent: function(action, label) {
-        if (!this.useMockData) {
-          var data = { 'event': 'Click', 'label': label };
-          if (this.isOutboundLink(label)) {
-            data.category = 'Outbound links';
-            data.action   = 'Click';
-          } else{
-            data.category = this.appName;
-            data.action   = '/' + this.appName + '/' + action;
-          }
+        if (!this.useMockData && !this.isOutboundLink(label)) {
+          var data = {
+            'event': 'Click',
+            'label': label,
+            'category': this.appName,
+            'action': '/' + this.appName + '/' + action
+          };
           this.fireEvent(data);
         }
       },
