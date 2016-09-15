@@ -46,13 +46,6 @@ Example:
         useMockData: {
           type: Boolean,
           value: false
-        },
-
-        /**
-         * User's ptype if the user is logged in
-         */
-        ptype: {
-          type: String
         }
       },
 
@@ -67,18 +60,13 @@ Example:
       },
 
       ready: function() {
-        var cookie = this.getCookie('UQLMockData'),
-            ptype = this.getCookie('UQLID_PTYPE');
+        var cookie = this.getCookie('UQLMockData');
 
         this.useMockData = false;
         if (cookie) {
           this.useMockData = (cookie === 'enabled');
         }
 
-        this.ptype = null;
-        if (ptype) {
-          this.ptype = ptype;
-        }
       },
 
       /**
@@ -127,10 +115,6 @@ Example:
        * @param data
        */
       fireEvent: function(data){
-        if (this.ptype) {
-          data.dimension1 = this.ptype;
-        }
-
         try {
           dataLayer.push(data);
         } catch (err) {
