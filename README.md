@@ -1,5 +1,8 @@
 # uqlibrary-ga
 
+[![Dependency Status](https://david-dm.org/uqlibrary/uqlibrary-ga.svg)](https://david-dm.org/uqlibrary/uqlibrary-ga)
+[![Dev Dependency Status](https://david-dm.org/uqlibrary/uqlibrary-ga/dev-status.svg)](https://david-dm.org/uqlibrary/uqlibrary-ga?type=dev)
+
 Web component for Google Analytics
 Full documentation can be found at [GitHub Pages](http://uqlibrary.github.io/uqlibrary-ga).
 
