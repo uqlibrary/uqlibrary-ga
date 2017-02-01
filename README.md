@@ -6,14 +6,17 @@ Full documentation can be found at [GitHub Pages](http://uqlibrary.github.io/uql
 ### Usage
 
 ```
-    <uqlibrary-ga tracking-id='UA-1234-5' website-url='http://www.test.com/app' app-name='TestApp' cookie-domain='test.com'></uqlibrary-ga>
+<uqlibrary-ga tracking-id='UA-1234-5' website-url='http://www.test.com/app' app-name='TestApp' cookie-domain='test.com'></uqlibrary-ga>
 ```
 
 Tracking id, website-url, app-name are set to be replaced at build time or as attributes to a required value.
 At build time use following tokens to replace: 
-- <GA-TRACKING-ID>
-- <GA-WEBSITE-URL>
-- <GA-COOKIE-DOMAIN>
+
+```
+<GA-TRACKING-ID>
+<GA-WEBSITE-URL>
+<GA-COOKIE-DOMAIN>
+```
 
 uqlibrary-gtm
 =============
@@ -45,3 +48,7 @@ Tests are run using the Web Component Tester. Either navigate to /tests/index.ht
 ```sh
 wct --local all
 ```
+
+##DEPRECATED: uqlibrary-ga - master/uat/staging/production
+This application used to be a part of a set of components implemented with Google Polymer v0.5.
+Use polymer1.0 branch for any releases.
