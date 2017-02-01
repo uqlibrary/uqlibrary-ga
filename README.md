@@ -30,7 +30,10 @@ Web component for Google Tag Manager
 
 Container id, app name are set to be replaced at build time or as attributes to a required value.
 At build time use following tokens to replace: 
-- <GTM-CONTAINER-ID>
+
+```
+<GTM-CONTAINER-ID>
+```
 
 ### Getting Started
 Please, note .bowerrc installs dependencies to ../ directory. It's recommended to develop this component in a sub directory, eg  .development/uqlibrary-ga-dev/uqlibrary-ga/ not to pollute your development directory with all bower dependencies.
@@ -45,6 +48,7 @@ npm install -g bower && bower install
 
 ### Testing
 Tests are run using the Web Component Tester. Either navigate to /tests/index.html in a browser or using the command line:
+
 ```sh
 wct --local all
 ```
