@@ -107,6 +107,25 @@ Example:
                       'sampleRate': this.sampleRate
                     });
             ga('set', 'dimension1', this.getCookie('UQLID_USER_GROUP'));
+
+            // Get cookie for user_stat_class
+            var statClasses = this.getCookie('UQLID_USER_STAT_CLASS');
+            if (statClasses !== "undefined") {
+                // Get user statistical categories
+                var classes = JSON.parse(statClasses);
+
+                // dimensions object to set
+                var dimensions = {};
+
+                // Set dimensionX key for each category (we start from 3 as dimension2 was already in use and google recommends not to reuse)
+                classes.forEach(function (sc, index) {
+                    var dimensionIndex = index + 3;
+                    var dimensionKey = 'dimension' + dimensionIndex;
+                    dimensions[dimensionKey] = sc;
+                });
+
+                ga('set', dimensions);
+            }
           } catch(err){}
         }
 
