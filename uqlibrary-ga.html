@@ -111,7 +111,12 @@ Example:
             // Get user statistical categories from cookie set in auth repo
             var statClasses = this.getCookie('UQLID_USER_STAT_CLASS');
             if (statClasses !== "undefined") {
-                ga('set', 'dimension3', statClasses);
+                // auth encodes the cookie before loading it - decode for easier handling by Analytics users
+                // semi-colon chosen as it does NOT seem to be found in the stat class text
+                // semi-colon encodes to %3b
+                var temp = statClasses.replace('%3B', '%3b');
+                var decoded = temp.replace('%3b', ';');
+                ga('set', 'dimension3', decoded);
             }
           } catch(err){}
         }

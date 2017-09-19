@@ -53,6 +53,8 @@ Tests are run using the Web Component Tester. Either navigate to /tests/index.ht
 wct --local all
 ```
 
-##DEPRECATED: uqlibrary-ga - master/uat/staging/production
+## DEPRECATED: uqlibrary-ga - master/uat/staging/production
+
 This application used to be a part of a set of components implemented with Google Polymer v0.5.
+
 Use polymer1.0 branch for any releases.
