@@ -9,11 +9,15 @@
   "private": true,
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0",
-    "iron-elements": "PolymerElements/iron-elements#^1.0.0"
+    "polymer": "Polymer/polymer#^1.9.3",
+    "iron-elements": "PolymerElements/iron-elements#^1.0.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.4"
   },
   "devDependencies": {
     "web-component-tester": "*",
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.4"
+    "test-fixture": "PolymerElements/test-fixture#^1.1.2"
+  },
+  "resolutions": {
+    "test-fixture": "^1.1.2"
   }
 }
