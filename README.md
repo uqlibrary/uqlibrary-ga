@@ -3,8 +3,10 @@
 [![Dependency Status](https://david-dm.org/uqlibrary/uqlibrary-ga.svg)](https://david-dm.org/uqlibrary/uqlibrary-ga)
 [![Dev Dependency Status](https://david-dm.org/uqlibrary/uqlibrary-ga/dev-status.svg)](https://david-dm.org/uqlibrary/uqlibrary-ga?type=dev)
 
-Web component for Google Analytics
-Full documentation can be found at [GitHub Pages](http://uqlibrary.github.io/uqlibrary-ga).
+Web component for Google Analytics.
+
+* Full documentation can be found at [GitHub Pages](http://uqlibrary.github.io/uqlibrary-ga/uqlibrary-ga/).
+* Demo is [here](http://uqlibrary.github.io/uqlibrary-ga/uqlibrary-ga/demo/).
 
 ## GA Usage
 
@@ -36,7 +38,7 @@ At build time use following tokens to replace:
 
 ## Getting Started
 
-Please, note .bowerrc installs dependencies to ../ directory. It's recommended to develop this component in a sub directory, eg  .development/uqlibrary-ga-dev/uqlibrary-ga/ not to pollute your development directory with all bower dependencies.
+Please, note `.bowerrc` installs dependencies to the parent directory of the git root. It's recommended to develop this component in a sub directory, eg  `.development/uqlibrary-ga-dev/uqlibrary-ga/` not to pollute your development directory with all bower dependencies.
 
 Install Node.JS and run the following oneliner in the project directory:
 
@@ -50,14 +52,9 @@ npm install -g bower && bower install
 
 ## Testing
 
-Tests are run using the Web Component Tester. Either navigate to /tests/index.html in a browser or using the command line:
+Tests are run using the Web Component Tester:
 
 ```sh
-wct --local all
+npm test
 ```
 
-## DEPRECATED: uqlibrary-ga - master/uat/staging/production
-
-This application used to be a part of a set of components implemented with Google Polymer v0.5.
-
-Use `polymer1.0` branch for any releases.
