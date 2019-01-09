@@ -1,0 +1,36 @@
+{
+  "name": "uqlibrary-ga",
+  "version": "1.1.3",
+  "description": "Web component to add Google Analytics tracking",
+  "license": "MIT",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "wct"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uqlibrary/uqlibrary-ga.git"
+  },
+  "keywords": [
+    "google",
+    "analytics",
+    "uq",
+    "library"
+  ],
+  "bugs": {
+    "url": "https://github.com/uqlibrary/uqlibrary-ga/issues"
+  },
+  "devDependencies": {
+    "bower": "^1.8.4",
+    "chai": "^4.2.0",
+    "web-component-tester": "*"
+  },
+  "engines": {
+    "npm": "^6.5.0",
+    "node": "^11.6.0"
+  },
+  "engine-strict": true
+}
