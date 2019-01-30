@@ -6,7 +6,6 @@
 Web component for Google Analytics.
 
 * Full documentation can be found at [GitHub Pages](http://uqlibrary.github.io/uqlibrary-ga/uqlibrary-ga/).
-* Demo is [here](http://uqlibrary.github.io/uqlibrary-ga/uqlibrary-ga/demo/).
 
 ## GA Usage
 
